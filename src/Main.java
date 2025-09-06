@@ -1,7 +1,7 @@
 import ru.mirea.lab1.Ex7;
 
 import java.util.Scanner;
-
+//testing git and stuff
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
