@@ -29,4 +29,5 @@ bin/
 .DS_Store!/src/ru/mirea/lab1/Ex5.class
 
 ### Self Ignore ###
-!/src/ru/mirea/lab1/Ex5.class
+!**/src/ru/mirea/lab1/Ex5.class
+src/ru/mirea/lab1/Ex5.class
