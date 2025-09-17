@@ -4,13 +4,17 @@ import java.util.Scanner;
 
 public class Ex3 {
     public static void main(String[] args){
-        int[] arr = new int[10];
-        int summa = 0;
         Scanner sc = new Scanner(System.in);
-        for (int i=0;i<10;i++){
+        int size = 0;
+        System.out.println("Введите количество чисел:");
+        size = sc.nextInt();
+        int[] arr = new int[size];
+        int summa = 0;
+
+        for (int i=0;i<size;i++){
             arr[i]=sc.nextInt();
             summa+=arr[i];
         }
-        System.out.println("Среднее значение: "+summa/10);
+        System.out.println("Среднее значение: "+ (float)summa/size);
     }
 }
