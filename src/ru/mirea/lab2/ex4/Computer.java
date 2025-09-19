@@ -1,4 +1,4 @@
-package ru.mirea.lab2;
+package ru.mirea.lab2.ex4;
 
 public class Computer {
     private final String os;

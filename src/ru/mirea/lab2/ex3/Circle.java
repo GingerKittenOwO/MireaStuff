@@ -1,4 +1,4 @@
-package ru.mirea.lab2;
+package ru.mirea.lab2.ex3;
 import java.lang.*;
 public class Circle {
     private Point center;

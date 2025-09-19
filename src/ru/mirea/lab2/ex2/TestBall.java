@@ -1,4 +1,4 @@
-package ru.mirea.lab2;
+package ru.mirea.lab2.ex2;
 
 public class TestBall {
     public static void main(String[] args) {

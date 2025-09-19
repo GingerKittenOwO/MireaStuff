@@ -1,4 +1,4 @@
-package ru.mirea.lab2;
+package ru.mirea.lab2.ex4;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -28,6 +28,7 @@ public class Shop {
         }
     }
 
+
     @Override
     public String toString(){
         String line ="";
@@ -45,13 +46,16 @@ public class Shop {
         Scanner sc = new Scanner(System.in);
         System.out.print("Введите изнаальное число компьютеров: ");
         int am = sc.nextInt();
+        sc.nextLine();
         for(int i =0;i<am;i++){
             String os;
             String cpu;
             int ram;
+
             System.out.println("Ввод данных компьютера №"+(i+1));
 
             System.out.println("Введите операционную систему:");
+
             os = sc.nextLine();
 
             System.out.println("Введите модель процессора:");
@@ -63,6 +67,7 @@ public class Shop {
             Computer pc = new Computer(os,cpu,ram);
             dns.addComputer(pc);
         }
+
         dns.spitout();
         System.out.println(dns.getComputer(2));
         dns.removeComputer(2);
@@ -70,6 +75,7 @@ public class Shop {
         Computer pc = new Computer("Windows","Intel 7",16);
         dns.addComputer(pc);
         dns.spitout();
+
 
 
     }

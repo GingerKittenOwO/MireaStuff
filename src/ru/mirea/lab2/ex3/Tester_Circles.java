@@ -1,4 +1,4 @@
-package ru.mirea.lab2;
+package ru.mirea.lab2.ex3;
 
 public class Tester_Circles {
     private Circle[] arr;
