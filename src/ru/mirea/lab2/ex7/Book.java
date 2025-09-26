@@ -9,12 +9,10 @@ public class Book {
 
 
 
-    public Book(String author, String name, int year, int publication, String publisher) {
+    public Book(String author, String name, int year) {
         this.author = author;
         this.name = name;
         this.year = year;
-        this.publication = publication;
-        this.publisher = publisher;
     }
 
     public String getAuthor() {
@@ -41,21 +39,21 @@ public class Book {
         this.year = year;
     }
 
-    public int getPublication() {
-        return publication;
-    }
-
-    public void setPublication(int publication) {
-        this.publication = publication;
-    }
-
-    public String getPublisher() {
-        return publisher;
-    }
-
-    public void setPublisher(String publisher) {
-        this.publisher = publisher;
-    }
+//    public int getPublication() {
+//        return publication;
+//    }
+//
+//    public void setPublication(int publication) {
+//        this.publication = publication;
+//    }
+//
+//    public String getPublisher() {
+//        return publisher;
+//    }
+//
+//    public void setPublisher(String publisher) {
+//        this.publisher = publisher;
+//    }
 
 
     @Override
