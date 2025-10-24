@@ -3,7 +3,7 @@ package ru.mirea.lab18;
 
 import java.util.Scanner;
 
-public class ThrowingDemo {
+public class ChainThrow {
     public void getKey() {
         try {
             Scanner myScanner = new Scanner(System.in);
@@ -30,7 +30,7 @@ public class ThrowingDemo {
 
 
     public static void main(String[] args) {
-        ThrowingDemo td = new ThrowingDemo();
+        ChainThrow td = new ChainThrow();
         td.getKey();
     }
 }

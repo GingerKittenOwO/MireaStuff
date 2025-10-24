@@ -3,7 +3,7 @@ package ru.mirea.lab13;
 import java.io.*;
 import java.util.*;
 
-public class FileName {
+public class WordsChain {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -33,59 +33,54 @@ public class FileName {
         }
     }
 
-    public static String getLine(String[] words) {
+    public static String getLine(String... words) {
         if (words == null || words.length == 0) {
             return "";
         }
 
-        // Создаем список для работы
         List<String> wordList = new ArrayList<>(Arrays.asList(words));
 
-        // Пытаемся построить цепочку, начиная с каждого слова
         for (int i = 0; i < wordList.size(); i++) {
-            List<String> result = new ArrayList<>();
+            StringBuilder chain = new StringBuilder();
             List<String> remaining = new ArrayList<>(wordList);
 
-            // Начинаем с текущего слова
             String currentWord = remaining.remove(i);
-            result.add(currentWord);
+            chain.append(currentWord);
 
-            // Пытаемся построить цепочку
-            if (buildChain(result, remaining)) {
-                return String.join(" ", result);
+            if (buildChain(chain, remaining)) {
+                return chain.toString();
             }
         }
 
-        // Если не удалось построить цепочку
         return "Не удалось построить цепочку";
     }
 
-    private static boolean buildChain(List<String> result, List<String> remaining) {
+    private static boolean buildChain(StringBuilder chain, List<String> remaining) {
         if (remaining.isEmpty()) {
             return true;
         }
 
-        // Получаем последнюю букву последнего слова в цепочке
-        char lastChar = result.get(result.size() - 1).toLowerCase().charAt(result.get(result.size() - 1).length() - 1);
+        char lastChar = chain.charAt(chain.length() - 1);
+        lastChar = Character.toLowerCase(lastChar);
 
-        // Пробуем добавить каждое подходящее слово
         for (int i = 0; i < remaining.size(); i++) {
             String candidate = remaining.get(i);
-            char firstChar = candidate.toLowerCase().charAt(0);
+            char firstChar = Character.toLowerCase(candidate.charAt(0));
 
-            // Проверяем совпадение букв (игнорируя регистр)
             if (lastChar == firstChar) {
-                // Пробуем добавить это слово
-                result.add(candidate);
+                // Сохраняем состояние перед изменением
+                int originalLength = chain.length();
+
+                chain.append(" ").append(candidate);
                 remaining.remove(i);
 
-                // Рекурсивно продолжаем построение
-                if (buildChain(result, remaining)) {
+                if (buildChain(chain, remaining)) {
                     return true;
                 }
 
-                // Не получилось, возвращаемся назад
-                remaining.add(i, result.remove(result.size() - 1));
+                // Backtracking: восстанавливаем состояние
+                chain.setLength(originalLength);
+                remaining.add(i, candidate);
             }
         }
 

@@ -1,4 +1,41 @@
 package ru.mirea.lab18;
 
+import java.util.Scanner;
+
 public class ChainThrowRepeat {
+    public void getKey() {
+        boolean validInput = false;
+        while(!validInput){
+            try {
+                Scanner myScanner = new Scanner(System.in);
+                String key = myScanner.next();
+                printDetails(key);
+                validInput = true;
+            } catch (Exception e) {
+                System.out.println("Ошибка: " + e.getMessage());
+                System.out.println("Попробуй еще раз");
+            }
+        }
+
+    }
+
+    public void printDetails(String key) throws Exception {
+        String message = getDetails(key);
+        System.out.println(message);
+
+    }
+
+    private String getDetails(String key) throws Exception {
+        if (key.equals("#")) {
+            throw new Exception("Key set to empty string");
+        }
+        return "data for " + key;
+    }
+
+
+
+    public static void main(String[] args) {
+        ChainThrowRepeat td = new ChainThrowRepeat();
+        td.getKey();
+    }
 }
