@@ -13,6 +13,7 @@ public class StudentMerger {
             mergeSort(arr, mid + 1, right);
             merge(arr, left, mid, right);
         }
+
     }
 
     private static void merge(Student[] arr, int left, int mid, int right) {
@@ -56,30 +57,34 @@ public class StudentMerger {
     }
 
     // Объединение двух отсортированных списков
-    public static List<Student> mergeSortedLists(List<Student> list1, List<Student> list2) {
-        List<Student> merged = new ArrayList<>();
-        int i = 0, j = 0;
+    public static Student[] mergeSortedLists(Student[] arr1, Student[] arr2) {
+        Student[] merged = new Student[arr1.length+arr2.length];
+        int i = 0, j = 0,k=0;
 
-        while (i < list1.size() && j < list2.size()) {
-            if (list1.get(i).compareTo(list2.get(j)) <= 0) {
-                merged.add(list1.get(i));
+        while (i < arr1.length && j < arr2.length) {
+            if (arr1[i].compareTo(arr2[j]) <= 0) {
+                merged[k] = arr1[i];
                 i++;
+                k++;
             } else {
-                merged.add(list2.get(j));
+                merged[k] = arr2[j];
                 j++;
+                k++;
             }
         }
 
-        while (i < list1.size()) {
-            merged.add(list1.get(i));
+        while (i < arr1.length) {
+            merged[k] = arr1[i];
             i++;
+            k++;
         }
 
-        while (j < list2.size()) {
-            merged.add(list2.get(j));
+        while (j < arr2.length) {
+            merged[k] = arr2[j];
             j++;
+            k++;
         }
-
+        System.out.println("\nMerge complete");
         return merged;
     }
 }
